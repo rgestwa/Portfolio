@@ -1,0 +1,22 @@
+//Script to create a simple alert in Shopify Plus checkout
+
+<script>
+$(document).on(`page:load page:change`, function() {
+  if (Shopify.Checkout.step == 'shipping_method'){
+    
+  //create text input variable
+  	var no_ship_alert = 
+        	'<div role="alert" data-shipping-warning="" data-banner="true" class="notice notice--error default-background" tabindex="-1" aria-atomic="true" aria-live="polite">' +
+              '<svg class="icon-svg icon-svg--size-24 notice__icon" aria-hidden="true" focusable="false"><use xlink:href="#error"></use></svg>' +
+                '<div class="notice__content">' +
+        '<p class="notice__text" id="no_ship_text" style="text-align: center;">Please be advised that any orders placed will not be recieved until <br><strong style="font-weight:bold;">after christmas</strong></p>' +
+  				'</div>' +
+  			'</div>';
+                                       
+    //append Purchase Order html content
+	$(".section__header").after(no_ship_alert);
+    
+  }
+  
+});
+</script>
